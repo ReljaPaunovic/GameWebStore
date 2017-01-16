@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from awsomeProject.models import Product
+from .models import Product
 
 def index(request):
     #data = Product(title="Panda")
