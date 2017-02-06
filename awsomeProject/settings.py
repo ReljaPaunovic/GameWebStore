@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import dj_database_url
 
+
+# Added this line because we extended the User Model in models.py
+#AUTH_USER_MODEL = "UserProfile"
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -27,7 +31,7 @@ SECRET_KEY = "p9=e2r0tg-s+e)tde4#4@5ectu0(@@nd*=9_r!2*$j1t=yp7y_"
 DEBUG = True
 
 # Application definition
-
+LOGIN_REDIRECT_URL = 'index'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -105,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Helsinki'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

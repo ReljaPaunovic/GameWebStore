@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block main %}
+<!-- Move this to a STATIC folder -->
+<script>
+  window.addEventListener("message", receiveMessage, false);
+
+  function receiveMessage(event)
+  {
+    //TODO: Maybe we should make sure that event comes from the game?
+    //var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+    //if (origin !== "http://example.org:8080")
+    //  return;
+
+    // Save game handler
+    if (event.data.messageType == "SAVE"){
+      // Data to be sent to coresponding view to process
+      var requestData = { 'game': {{ game.pk }} , 'score': event.data.gameState['score'], 'items': event.data.gameState['playerItems']};
+      // Ajax call to view saveGame
+      $.ajax({
+          type: "POST",
+          url: "saveGame/",
+          data: requestData,
+          success: function(data){
+              alert(data);
+          },
+          error: function(msg){
+              alert( "There is an error with the server." );
+          }
+      });
+    }
+    // Load game
+    if (event.data.messageType == "LOAD_REQUEST"){
+      var requestData = { 'game': {{ game.pk }}};
+      // Ajax call that sends load game data to loadGame view,
+      // Load game view process the data and sends it back
+      // If it is successfull, message with load data is sent to the game
+      $.ajax({
+          type: "POST",
+          url: "loadGame/",
+          data: requestData,
+          success: function(data){
+              // Just checking that correct data is sent
+              if ( data.messageType == "LOAD"){
+                var message = data;
+                // Message containing load game data is sent to the game
+                var iframe = document.getElementById("game").contentWindow;
+                iframe.postMessage(message, "{{ game.url }}");
+              }
+              else
+                alert(data);
+          },
+          error: function(msg){
+              alert( "There is an error with the server." );
+          }
+      });
+    }
+    // Used for saving the score of the game, usually after the game has ended
+    if(event.data.messageType == "SCORE"){
+      var requestData ={ 'game': {{ game.pk }} , 'score': event.data.score};
+      $.ajax({
+          type: "POST",
+          url: "saveScore/",
+          data: requestData,
+          success: function(data){
+              //TODO: dont reload whole page, make it like a AJAX call to refresh highscores only
+                alert(data);
+                // Refresh page to see newly updated highscores
+                location.reload();
+          },
+          error: function(msg){
+              alert( "There is an error with the server." );
+          }
+      });
+    }
+
+  }
+  function addComment(){
+    $.ajax({
+        type: "POST",
+        url: "addComment/",
+        data: {"comment" : $("#comment").val()},
+        success: function(data){
+            //TODO: dont reload whole page, make it like a AJAX call to refresh highscores only
+              alert(data);
+              // Refresh page to see newly updated highscores
+              location.reload();
+        },
+        error: function(msg){
+            alert( "There is an error with the server." );
+        }
+    });
+  }
+</script>
+<div class="row">
+  <h1> {{ game.name }} </h1>
+  <div class="col-sm-6">
+    {% if gameBought %}
+      <iframe src="{{ game.url }}" name="game" id="game"></iframe>
+    {% else %}
+      <p> You dont own the GAME!!!!!! Buy it <a href="{% url 'buyGame' game.name %}"> here </a> </p>
+    {% endif %}
+  </div>
+  <div class="col-sm-6" id="highScores">
+    <h1> High Scores </h1>
+    <!-- Please style this table in CSS -->
+    <table border="6">
+      <tr>
+          <th>User</th>
+          <th>Score</th>
+      </tr>
+      {% for item in scores %}
+      <tr>
+          <td>{{ item.user }}</td>
+          <td>{{ item.score }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<!-- Add comment for user, PANDA please style this -->
+<div class="row">
+  <form action="javascript:;" onsubmit="addComment()">
+    <div class="form-group">
+      <div class="col-sm-12">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="3" id="comment"></textarea>
+      </div>
+      <div class = "col-sm-4">
+        <input type="submit" value="Submit Comment" />
+      </div>
+    </div>
+  </form>
+</div>
+<!-- TODO: Represent all comments for this game in following way -->
+{% for comment, userProfile in userComments %}
+<div class="row">
+  <div class="col-sm-1">
+    <div class="thumbnail">
+    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+    </div><!-- /thumbnail -->
+  </div><!-- /col-sm-1 -->
+
+  <div class="col-sm-11">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>{{comment.user}}</strong> <span class="text-muted">Created on : {{comment.created}}</span>
+      </div>
+      <div class="panel-body">
+        {{comment.commentText}}
+      </div><!-- /panel-body -->
+    </div><!-- /panel panel-default -->
+  </div><!-- /col-sm-5 -->
+</div>
+{% endfor %}
+{% endblock %}
