@@ -125,11 +125,10 @@ def searchGameSalesAPI(request):
         for game in games:
             # first() is used to force database call
             developer = DeveloperGame.objects.all().filter(game=game).first()
+            buyersAndTimestamps = []
             if Transaction.objects.all().filter(game=game).exists(): #if the game has an entry in the Transactions table (i.e. someone bought it)
                 #then assign the transation values
                 Purchases = Transaction.objects.all().filter(game=game) #Querying from the transactions game table all objects whose game matches game_name
-                buyersAndTimestamps = []
-                timestamps = []
                 for purchase in Purchases:
                     buyersAndTimestamps.append({"bought by" : purchase.user.username, "on" : purchase.timestamp})
 
@@ -457,7 +456,7 @@ def loadGame(request):
             return HttpResponse("No saved games to load.")
     else:
         return HttpResponse("Not authorized.")
-        
+
 @login_required(login_url='/login/')
 @csrf_protect
 def addComment(request,game_name):
