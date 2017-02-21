@@ -376,23 +376,23 @@ def game(request, game_name):
 @login_required(login_url='/login/')
 @csrf_protect
 def saveScore(request):
-	# Only available as ajax post call
-	if request.method == "POST" and request.is_ajax():
-		#create python dictionary from data sent through post request
-		#root = dict(request.POST.lists())	#python2.7
-		#root = dict(request.POST.iterlists()) #python3
+    # Only available as ajax post call
+    if request.method == "POST" and request.is_ajax():
+        #create python dictionary from data sent through post request
+        #root = dict(request.POST.lists())	#python2.7
+        #root = dict(request.POST.iterlists()) #python3
         root = dict(request.POST)
-		user = request.user
-		#extract data from root
-		game = Game.objects.get(pk = root['game'][0])
-		score = root['score'][0]
-		# Do not save dupicates of Scores (same score from same user for same game)
-		if not Scores.objects.filter(user=user, game=game, score=score).exists():
-			data = Scores(user=user, game=game, score=score)
-			data.save()
-		return HttpResponse("Score Saved")
-	else:
-		return HttpResponse("Not authorized.")
+        user = request.user
+        #extract data from root
+        game = Game.objects.get(pk = root['game'][0])
+        score = root['score'][0]
+        # Do not save dupicates of Scores (same score from same user for same game)
+        if not Scores.objects.filter(user=user, game=game, score=score).exists():
+            data = Scores(user=user, game=game, score=score)
+            data.save()
+        return HttpResponse("Score Saved")
+    else:
+        return HttpResponse("Not authorized.")
 
 @login_required(login_url='/login/')
 @csrf_protect
