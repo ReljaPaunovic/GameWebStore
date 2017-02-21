@@ -28,7 +28,8 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "p9=e2r0tg-s+e)tde4#4@5ectu0(@@nd*=9_r!2*$j1t=yp7y_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = [".herokuapp.com"]
 
 # Application definition
 LOGIN_REDIRECT_URL = 'index'
@@ -122,9 +123,6 @@ DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
