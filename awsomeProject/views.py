@@ -380,7 +380,8 @@ def saveScore(request):
 	if request.method == "POST" and request.is_ajax():
 		#create python dictionary from data sent through post request
 		#root = dict(request.POST.lists())	#python2.7
-		root = dict(request.POST.iterlists()) #python3
+		#root = dict(request.POST.iterlists()) #python3
+        root = dict(request.POST)
 		user = request.user
 		#extract data from root
 		game = Game.objects.get(pk = root['game'][0])
