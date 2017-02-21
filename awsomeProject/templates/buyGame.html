@@ -11,25 +11,23 @@
 		<form action="http://payments.webcourse.niksula.hut.fi/pay/" method="POST">
 			<label for="Payment" class="control-label text-center section-font" style="margin-top: 20px"></label>
 			{% csrf_token %}
-			
+
 			<!-- pid is the game's primary key -->
 			<input type="hidden" name="pid" value={{pid}} />
 			<input type="hidden" name="sid" value={{sid}} />
-			
+
 			<!-- the three urls can be the same and then only the "result" parameter from the HTTP GET from the payment service can be different -->
 			<input type="hidden" name="success_url" value={{success_url}} />
 			<input type="hidden" name="cancel_url" value={{cancel_url}} />
 			<input type="hidden" name="error_url" value={{error_url}} />
-			
+
 			<!-- checksum is calculated in the view based on the above parameters (pid, sid, amount and then the secret key based on the sid) -->
 			<input type="hidden" name="checksum" value={{checksum}} />
-			<input type="hidden" name="dev" value="dev" />
-
 			<div class="text-left">
 				<label for="game-name">Game</label>
 				<input type="text" id="game-name" readonly name="amount" class="form-control" aria-label="Game Name" value={{game_name}} style="font-weight: bold;"/>
 			</div>
-			
+
 			<div class="text-left" style="margin-top: 20px">
 				<label for="id_amount">Amount</label>
 				<div class="input-group">
@@ -39,7 +37,7 @@
 					<input type="text" id="id_amount" readonly name="amount" class="form-control glyphicon" aria-label="Amount" value={{amount}} style="font-weight: bold;"/>
 				</div>
 			</div>
-			
+
 			<div class="">
 				<!-- check technicalities of each button below and how to conect them to the different responses -->
 				<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px">Go to Payment Page</button>
