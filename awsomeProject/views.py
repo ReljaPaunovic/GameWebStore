@@ -381,6 +381,7 @@ def saveScore(request):
         #create python dictionary from data sent through post request
         #root = dict(request.POST.lists())	#python2.7
         #root = dict(request.POST.iterlists()) #python3
+        # Python 3.6 used on heroku requires this
         root = dict(request.POST)
         user = request.user
         #extract data from root
@@ -399,7 +400,7 @@ def saveScore(request):
 def saveGame(request):
     if request.method == "POST" and request.is_ajax():
         #create python dictionary from data sent through post request
-        root = dict(request.POST.iterlists())
+        root = dict(request.POST)
 
         user = request.user
         #extract data from root
@@ -434,28 +435,29 @@ def saveGame(request):
 @login_required(login_url='/login/')
 @csrf_protect
 def loadGame(request):
-	if request.method == "POST" and request.is_ajax():
-		#create python dictionary from data sent through post request
-		#root = dict(request.POST.iterlists())  #python2.7
-		root = dict(request.POST.lists())	#python3
-		user = request.user
-		game = Game.objects.get(pk = root['game'][0])
+    if request.method == "POST" and request.is_ajax():
+        #create python dictionary from data sent through post request
+        #root = dict(request.POST.iterlists())  #python2.7
 
-		# If previously saved games exists, load them
-		if Gameplay.objects.filter(user=user, game=game).exists():
-			gameplay = Gameplay.objects.get(user=user, game=game)
-			# Prepare response to send to game
-			response = {'messageType' : 'LOAD', 'gameState' : {'playerItems' : [], 'score' : gameplay.score}}
-			# Fill items array one item a time
-			# Same as PlayerItem.objects.all().filter(gameplay=gameplay)
-			for item in PlayerItem.objects.filter(gameplay=gameplay):
-				response['gameState']['playerItems'].append(item.itemName)
-			return JsonResponse(response)
-		else:
-			return HttpResponse("No saved games to load.")
-	else:
-		return HttpResponse("Not authorized.")
+        root = dict(request.POST)
+        user = request.user
+        game = Game.objects.get(pk = root['game'][0])
 
+        # If previously saved games exists, load them
+        if Gameplay.objects.filter(user=user, game=game).exists():
+            gameplay = Gameplay.objects.get(user=user, game=game)
+            # Prepare response to send to game
+            response = {'messageType' : 'LOAD', 'gameState' : {'playerItems' : [], 'score' : gameplay.score}}
+            # Fill items array one item a time
+            # Same as PlayerItem.objects.all().filter(gameplay=gameplay)
+            for item in PlayerItem.objects.filter(gameplay=gameplay):
+                response['gameState']['playerItems'].append(item.itemName)
+            return JsonResponse(response)
+        else:
+            return HttpResponse("No saved games to load.")
+    else:
+        return HttpResponse("Not authorized.")
+        
 @login_required(login_url='/login/')
 @csrf_protect
 def addComment(request,game_name):
