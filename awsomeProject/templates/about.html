@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block scriptsAndStylesheets %}
+{% load static %}
+	{% load cloudinary %}
+	{% cloudinary_includes %}
+	{% cloudinary_js_config %}
+{% endblock %}
+
+{% block main %}
+
+<!-- About Section -->
+<section id="about"  class="bg-light-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">About</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p class="text-muted">Some text about the Project and how the navigation goes!!
+					</p>						
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Team Section -->
+<section id="team">
+	<div class="col-lg-12 text-center">
+		<h2 class="section-heading">Our Amazing Team</h2>
+	</div>
+	
+	<div id="team-members">
+		<div class="col-sm-4">
+			<div class="member">
+				<div class="pagination-centered">
+					{% cloudinary 'WSD/Relja.jpg' height=150 width=150 crop="fill" secure=True class="img-circle img-responsive" style="display:block; margin:auto"%}
+				</div>
+				<h4>Relja</h4>
+				<p class="text-muted">Some Text</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-4">
+			<div class="member">
+				<!-- <img src="https://res.cloudinary.com/sakshyam/image/upload/v1487156730/WSD/Sakshyam.jpg" class="img-responsive img-circle" alt="" style="width:150px; height:150px; margin-top: 4px; display:block; margin:auto"> -->
+				{% cloudinary 'WSD/Sakshyam.jpg' height=150 width=150 crop="fill" secure=True class="img-circle img-responsive" style="display:block; margin:auto"%}
+				<h4>Sakshyam Panda</h4>
+				<p class="text-muted">Some Text</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-4">
+			<div class="member">
+				{% cloudinary 'WSD/Sharbel.jpg' height=150 width=150 crop="fill" secure=True class="img-circle img-responsive" style="display:block; margin:auto"%}
+				<h4>Sharbel</h4>
+				<p class="text-muted">Some Text</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

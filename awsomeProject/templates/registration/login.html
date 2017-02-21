@@ -1,11 +1,31 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 
 {% block main %}
-  <h2>Login</h2>
-  <form method="post">
-    <!-- Cross site request forgery prevention -->
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+<div class="col-md-12" id="login">
+	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="border: solid #f7f7f9">		
+		<form method="post">
+			<label for="Login" class="control-label text-center section-font" style="margin-bottom: 20px; margin-top: 20px">Login</label>
+			<!-- Cross site request forgery prevention -->
+			{% csrf_token %}
+			<div class=" text-left">
+				{{form|bootstrap}}
+			</div>
+			<!--
+			{% for field in form %}
+				<div class="form-group">
+					{{field}}
+				</div>
+				<!--
+				<div class="">
+					{{ field.label_tag }} {{ field }}
+					
+				</div>
+			{% endfor %}
+			-->
+			<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px">Login</button>
+		</form>
+	</div>
+</div>
+
 {% endblock %}

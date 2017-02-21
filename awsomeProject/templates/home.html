@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block scriptsAndStylesheets %}
+	{% load cloudinary %}
+	{% cloudinary_includes %}
+	{% cloudinary_js_config %}
+{% endblock %}
+
+{% block main %}
+
+<div class="col-md-12" id="home">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{% if user.is_authenticated %}
+				<div class="col-md-12 text-center">
+					<div class="section-font">Welcome Back {{ user.username }}!</div>
+					<div class="section-font">It's Nice To Meet You</div>
+				</div>
+				{% else %}
+				<div class="col-md-12 text-center">
+					<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:15px">
+						<div class="section-font">Welcome!</div>
+						<div class="section-font">It's Nice To Meet You</div>
+					</div>
+					<div class="col-md-12 text-center" style="margin-bottom:15px">
+						<a href="{% url "register" %}" class="btn btn-primary btn-lg" role="button">Register</a>
+						<a href="{% url "login" %}" class="btn btn-primary btn-lg" role="button">Login</a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12" style="margin-bottom:18px">
+		<label class="section-font control-label">Most Recent Games</label>
+	</div>
+	
+	<div class="" id="show-games">
+		{% for game in games %}
+		<div class="col-md-4 col-sm-6 text-center" style="padding-bottom:30px;">
+			<div class="img-thumbnail text-center">
+				<div class="col-md-12 bd-example">
+					<a href={% url "game" game.name %}>
+					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+					</a>
+				</div>
+				<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
+					<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a><br>
+					<span class="section-subheading text-danger">
+						<span class="glyphicon glyphicon-euro" style="font-weight: 900; padding:5px;">{{game.price}}</span>
+					</span>
+				</div>
+				
+				<div class="col-md-12 text-left game-description highlight">
+					<span><strong>Description:</strong></span>
+					<p class="section-subheading text-muted">{{game.description}}</p>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

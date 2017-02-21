@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block scriptsAndStylesheets %}
+  {% load cloudinary %}
+  {% cloudinary_includes %}
+  {% cloudinary_js_config %}
+{% endblock %}
+
+{% block main %}
+
+<div class="col-lg-12">
+                <h1 class="page-header"> Manage My Uploaded Games </h1>
+</div>
+
+<!-- TODO Implement the page for managing games where clicking one game from the list will redirect to a page where only that game is edited or the sales list is shown -->
+{% for game, numberOfPurchases in gamePurchases %}
+<div class="col-md-6 portfolio-item">
+               <a href={% url "game" game.name %}>
+                  <!-- Source of the picture should be implemented from db -->
+                   {% cloudinary game.image height=400 width=700 class="img-responsive" %}
+               </a>
+               <h3>
+                   <a href={% url "game" game.name %}> {{game.name}}</a>
+                   <a href={% url "manageGame" game.name %} style="color:#ddd;">Manage Game</a>
+               </h3>
+               <a href={% url "manageGame" game.name %}></a>
+               <p> Number of Purchases: {{numberOfPurchases}}</p>
+               <p> {{game.description}}</p>
+</div>
+
+{% endfor %}
+
+{% for purchasedGame, purchasedWhen in boughtGames %}
+	<p>{{purchasedGame}}, {{purchasedWhen}}</p>
+
+{% endfor %}
+
+{% endblock %}

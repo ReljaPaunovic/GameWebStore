@@ -1,24 +1,188 @@
 {% extends "base.html" %}
 
+{% block scriptsAndStylesheets %}
+  {% load cloudinary %}
+  {% cloudinary_includes %}
+  {% load static %}
+  {% cloudinary_js_config %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/browseGames.css' %}">
+  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" />
+{% endblock %}
+
 {% block main %}
 
-<div class="col-lg-12">
-                <h1 class="page-header"> Browse Games
-                    <small>Secondary Text if we need it</small>
-                </h1>
-</div>
-{% for game in games %}
+	<div class="col-lg-12" style="margin-bottom:15px; margin-top:15px">
+		<div class="section-font"> Choose Category </div>
+	</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#all" role="tab" data-toggle="tab">
+               <span>All</span>
+             </a>
+           </li>
+          <li role="presentation">
+            <a href="#action" role="tab" data-toggle="tab">
+               <span>Action</span>
+             </a>
+           </li>
+          <li role="presentation">
+            <a href="#adventure" role="tab" data-toggle="tab">
+              <span>Adventure</span>
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#strategy" role="tab" data-toggle="tab">
+               <span>Strategy</span>
+             </a>
+           </li>
+          <li role="presentation">
+            <a href="#sports" role="tab" data-toggle="tab">
+              <span>Sports</span>
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#puzzle" role="tab" data-toggle="tab"> 
+              <span>Puzzle</span>
+            </a>
+          </li>
+        </ul>
 
-<div class="col-md-6 portfolio-item">
-               <a href={% url "game" game.name %}>
-                  <!-- Source of the picture should be implemented from db -->
-                   <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-               </a>
-               <h3>
-                   <a href={% url "game" game.name %}> {{game.name}}</a>
-               </h3>
-               <p> {{game.description}}</p>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="all">
+            {% for game in all %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={%  url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="action">
+            {% for game in action %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="adventure">
+            {% for game in adventure %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="strategy">
+            {% for game in strategy %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="sports">
+            {% for game in sports %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="puzzle">
+            {% for game in puzzle %}
+        		<div class="col-md-6 text-center" style="padding-bottom:30px;">
+        			<div class="img-thumbnail text-center">
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}>
+        					   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+        					</a>
+        				</div>
+        				<div class="col-md-12">
+        					<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+        					<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+        				</div>
+        				<div class="col-md-12 text-left game-description">
+        					<h5 class="service-heading"><strong>Description:</strong></h5>
+        					<p class="section-subheading text-muted">{{game.description}}</p>
+        				</div>
+        			</div>
+        		</div>
+        		{% endfor %}
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
 
-{% endfor %}
+
 {% endblock %}

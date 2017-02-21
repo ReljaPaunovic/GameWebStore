@@ -1,78 +1,176 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 
 {% block scriptsAndStylesheets %}
-{% load static %}
-<script type="text/javascript" src="{% static "js/profile.js" %}"></script>
-<link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
-
+	{% load cloudinary %}
+	{% cloudinary_includes %}
+	{% cloudinary_js_config %}
 {% endblock %}
 
 {% block main %}
 
-{% if userProfile.isDeveloper %}
 
-Hello developer {{user.username}}
-{% if success %}
+<div class="col-md-12">
+	<div class="col-md-12">
+		<div class="col-md-3 text-center" style="float: none; margin: 0 auto">
+			<div class="col-md-12">
+				{% cloudinary 'WSD/profile_mockup.png' height=150 width=150 crop="fill" secure=True class="img-circle img-responsive" style="display:block; margin:auto" %}
+			</div>
+			<div class="col-md-12">
+				<p class="lead" style="margin-bottom:0px">{{user.username}}</p>
+				<span><a href="editProfile" style="color:#ddd;">Edit Profile</a></span>
+				<span><a href={% url "registerForAPI" %}> Request API Key </a></span>
+			</div>
+		</div>
+	</div>
 
-<p> Upload sucessuful </p>
+	{% if userProfile.isDeveloper %}
+		<div class="col-md-12">
+			<div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+				<div class="btn-group btn-pref" role="group">
+					<button type="button" class="btn btn-default" href="#tab1" id="create-new-game" data-toggle="tab">Add New Game</button>
+				</div>
+				<div class="btn-group btn-pref" role="group">
+					<button type="button" class="btn btn-primary" href="#tab2" id="created-game" data-toggle="tab">Your Games</button>
+				</div>
+				<div class="btn-group btn-pref" role="group">
+					<button type="button" class="btn btn-default" href="#tab3" id="purchased-game" data-toggle="tab">Purchased Games</button>
+				</div>
+			</div>
 
-{% else %}
-<form method="post" action=".">
-        {% csrf_token %}
-        <table border="0">
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Upload" />
-</form>
-{% endif %}
+			<div class="well col-md-12">
+				<div class="tab-content">
+					<div class="tab-pane fade in" id="tab1">
+						<div class="col-md-10">
+							<div id="new-game" class="">
+								<div class="col-md-10 col-md-offset-2">
+									{% if success %}
+									<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<p>Successfully added a new game.<br>
+											Thank you.
+										</p>
+									</div>
+									{% endif %}
+									<div id='backend_upload'>
+										<form action="." method="post" enctype="multipart/form-data" id="add-game-form">
+											<label for="New Game" class="control-label text-center section-font" style="margin-bottom: 20px; margin-top: 20px">New Game</label>
+											{% csrf_token %}
+											{{ backend_form }}
+											<div class="text-left">
+												{{ form|bootstrap }}
+											</div>
+											<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px">Upload</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-{% else %}
-<div class="col-lg-12 col-sm-12">
-    <div class="card hovercard">
-        <div class="card-background">
-            <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
-            <!-- http://lorempixel.com/850/280/people/9/ -->
-        </div>
-        <div class="useravatar">
-            <img alt="" src="http://lorempixel.com/100/100/people/9/">
-        </div>
-        <div class="card-info"> <span class="card-title"> {{user.username}}</span>
+					<div class="tab-pane fade in active" id="tab2">
+						<div class="">
+							<div>
+								<h1 class="page-header"> Manage Games </h1>
+							</div>
+							
+							<div>
+								<!-- TODO Implement the page for managing games where clicking
+								one game from the list will redirect to a page where only that game is edited or the sales list is shown -->
+								{% for game, numberOfPurchases in gamePurchases %}
+									<div class="col-md-4 text-center" style="padding-bottom:30px;">
+										<div class="img-thumbnail text-center">
+											<div class="col-md-12">
+												<a href={% url "game" game.name %}>
+												   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+												</a>
+											</div>
+											<div class="col-md-12">
+												<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+												<a href={% url "manageGame" game.name %} style="color:#ddd;">Manage Game</a>
+											</div>
+											<div class="col-md-12 text-left">
+												<a href={% url "manageGame" game.name %}></a>
+												<p> Number of Purchases: {{numberOfPurchases}}</p>
+												<p> {{game.description}}</p>
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
 
-        </div>
-    </div>
-    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <div class="hidden-xs">Stars</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Following</div>
-            </button>
-        </div>
-    </div>
+					<div class="tab-pane fade in" id="tab3">
+						<h3>Purchased Games</h3>
+						<div class="col-md-4">
+							<a href="" class="thumbnail">
+								Buy Games
+							</a>
+						</div>
+						{% for game, purchasedWhen, count in boughtGames %}
+							<div class="col-md-4 text-center" style="padding-bottom:30px;">
+								<div class="img-thumbnail text-center">
+									<div class="col-md-12">
+										<a href={% url "game" game.name %}>
+										   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+										</a>
+									</div>
+									<div class="col-md-12">
+										<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+										<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+									</div>
+									<div class="col-md-12 text-left game-description">
+										<h5 class="service-heading"><strong>Description:</strong></h5>
+										<p class="section-subheading text-muted">{{game.description}}</p>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
 
-        <div class="well">
-      <div class="tab-content">
-        <div class="tab-pane fade in active" id="tab1">
-          <h3>This is tab 1</h3>
-        </div>
-        <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
-        </div>
-        <div class="tab-pane fade in" id="tab3">
-          <h3>This is tab 3</h3>
-        </div>
-      </div>
-    </div>
+				</div>
+			</div>
+		</div>
 
-    </div>
-{% endif %}
+	{% else %}
+		<div class="col-md-12">
+			<div class="well">
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="tab1">
+						<h3>This is tab 1</h3>
+						<button type="button" id="buy-game-btn" class="btn btn-info btn-lg">Buy Games</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</div>
 
 {% endblock %}
+
+<!-- ##############################################   donot remove this please
+							{% if posted %}
+								<div class="results">
+									{% if posted.errors %}
+									Errors: {{ posted.errors }}
+									{% else %}
+									<div class="uploaded_info">
+										<div class="data">
+										<table>
+											{% for key, value in posted.image.metadata.items %}
+												<tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+											{% endfor %}
+										</table>
+										</div>
+										<div class="image">
+											{% load cloudinary %}
+											{% cloudinary posted.image THUMBNAIL %}
+										</div>
+									</div>
+									{% endif %}
+								</div>
+							{% endif %}
+							-->

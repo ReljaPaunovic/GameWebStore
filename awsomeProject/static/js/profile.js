@@ -4,4 +4,10 @@ $(".btn-pref .btn").click(function () {
     // $(".tab").addClass("active"); // instead of this do the below
     $(this).removeClass("btn-default").addClass("btn-primary");
 });
+
+//$("#add-another-game-btn").click( function () {
+	//location.reload();
+	//$('#backend_upload').trigger("reset");
+//});
+
 });

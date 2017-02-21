@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'awsomeProject'
+    'awsomeProject',
+	'cloudinary',
+	'bootstrapform',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,6 +126,17 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'wsdAwsomeProject@gmail.com'
+EMAIL_HOST_PASSWORD = 'reljathegreat'
+
+#SMTP one for production
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#Testing purposes
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -138,3 +151,7 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CLOUDINARY = {
+    'max_length': 200,
+}
