@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'awsomeProject',
 	'cloudinary',
 	'bootstrapform',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -60,6 +61,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'awsomeProject.urls'
@@ -75,6 +77,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
+                'social.apps.django_app.context_processors.backends',  # <--
+                'social.apps.django_app.context_processors.login_redirect', # <--
             ],
             'debug': DEBUG,
         },
@@ -154,3 +160,21 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 CLOUDINARY = {
     'max_length': 200,
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.github.GithubOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
+SOCIAL_AUTH_GITHUB_KEY = '1094653e974187c485da'
+SOCIAL_AUTH_GITHUB_SECRET = '616bbb6f2764c397898e36297864c4d73b35c588'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '328098844258094'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '4fdb11aa846b0ba6c067818c52c0d90a'

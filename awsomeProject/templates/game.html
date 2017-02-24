@@ -100,10 +100,12 @@
 
 <div class="col-md-12">
 	<div class="col-md-12">
-		<div class="bd-example">
-			<label class="section-font control-label">{{ game.name }}</label>
+		<div class="highlight">
+			<label for="game-name" class="section-font control-label col-md-12">{{ game.name }}</label>
 			{% if gameBought %}
-					<iframe src="{{ game.url }}" name="game" id="game"></iframe>
+				<div class="">
+					<iframe class="" src="{{ game.url }}" name="game" id="game"></iframe>
+				</div>
 			{% else %}
 				<div class="alert alert-info" role="alert">
 					<p> <strong>Oh Shoot!</strong> You need to buy the game to play it.<br/>
@@ -111,7 +113,8 @@
 					</p>
 				</div>
 			{% endif %}
-      <a href="https://www.facebook.com/sharer/sharer.php?status=Check%20out%20this%20%23AwsomeGame%20called%20%22{{ game.name }}%22%20on%20AwsomeGames%3A%20{{ gameURL }}" target="_blank">
+
+      <a href="https://www.facebook.com/sharer/sharer.php?status=Check%20out%20this%20%23AwsomeGame%20called%20%22{{ game.name }}%22%20on%20AwsomeGames%3A%20{{ gameURL }}" target="_blank" class="st_sharethis" st_url="http://sharethis.com" st_title="Sharing is great!">
         Share on Facebook
       </a>
       <a href="https://twitter.com/home?status=Check%20out%20this%20%23AwsomeGame%20called%20%22{{ game.name }}%22%20on%20AwsomeGames%3A%20{{ gameURL }}" target="_blank">
@@ -119,13 +122,11 @@
       </a>
 
 		</div>
+	</div>
 
-  </div>
-
-	<div class="col-md-12 col-sm-12">
-    <div class="bd-example col-md-6" id="highScores">
-
-			<label class="section-font control-label">High Scores</label>
+	<div class="col-md-12">
+		<div class="bd-example col-md-6" id="highScores">
+			<label for="High-scores" class="section-font control-label">High Scores</label>
 			<table class="table table-hover">
 				<thead class="thead-default">
 					<tr>
@@ -146,31 +147,31 @@
 
 		<!-- Add comment for user -->
 		<div class="bd-example col-md-6" style="margin-bottom: 10px;">
-
 			<form action="javascript:;" onsubmit="addComment()">
 				<label for="add-comment" class="control-label text-center section-font" style="margin-bottom: 20px;">Comment</label>
 				<div class=" text-left">
 					<textarea class="form-control" rows="4" id="comment"></textarea>
 				</div>
-				<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px">Submit</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px; margin-bottom: 30px">Submit</button>
 			</form>
-		</div>
+		
 
 		<!-- TODO: Represent all comments for this game in following way -->
 
-		{% for comment, userProfile in userComments %}
-			<div class="text-left highlight">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong>{{comment.user}}</strong>
-					</div>
-					<div class="panel-body">
-						{{comment.commentText}}
-					</div><!-- /panel-body -->
-					<div class="panel-footer text-right"><span class="text-muted small">{{comment.created}}</span></div>
-				</div><!-- /panel panel-default -->
-			</div><!-- /col-sm-5 -->
-		{% endfor %}
+			{% for comment, userProfile in userComments %}
+				<div class="text-left">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<strong>{{comment.user}}</strong>
+						</div>
+						<div class="panel-body">
+							{{comment.commentText}}
+						</div><!-- /panel-body -->
+						<div class="panel-footer text-right"><span class="text-muted small">{{comment.created}}</span></div>
+					</div><!-- /panel panel-default -->
+				</div><!-- /col-sm-5 -->
+			{% endfor %}
+		</div>
 	</div>
 </div>
 

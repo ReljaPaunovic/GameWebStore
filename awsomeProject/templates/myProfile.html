@@ -72,29 +72,27 @@
 
 					<div class="tab-pane fade in active" id="tab2">
 						<div class="">
-							<div>
-								<h1 class="page-header"> Manage Games </h1>
-							</div>
-							
+							<label class="control-label text-center section-font" style="margin-bottom: 20px; margin-top: 20px">Manage Games</label>
 							<div>
 								<!-- TODO Implement the page for managing games where clicking
 								one game from the list will redirect to a page where only that game is edited or the sales list is shown -->
 								{% for game, numberOfPurchases in gamePurchases %}
-									<div class="col-md-4 text-center" style="padding-bottom:30px;">
+									<div class="col-md-4 col-sm-6 text-center" style="padding-bottom:30px;">
 										<div class="img-thumbnail text-center">
-											<div class="col-md-12">
+											<div class="col-md-12 bd-example">
 												<a href={% url "game" game.name %}>
 												   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
 												</a>
 											</div>
-											<div class="col-md-12">
-												<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+											<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
+												<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a><br>
 												<a href={% url "manageGame" game.name %} style="color:#ddd;">Manage Game</a>
 											</div>
-											<div class="col-md-12 text-left">
-												<a href={% url "manageGame" game.name %}></a>
+											
+											<div class="col-md-12 text-left game-description highlight">
 												<p> Number of Purchases: {{numberOfPurchases}}</p>
-												<p> {{game.description}}</p>
+												<span><strong>Description:</strong></span>
+												<p class="section-subheading text-muted">{{game.description}}</p>
 											</div>
 										</div>
 									</div>
@@ -104,9 +102,9 @@
 					</div>
 
 					<div class="tab-pane fade in" id="tab3">
-						<h3>Purchased Games</h3>
+						<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
 						<div class="col-md-4">
-							<a href="" class="thumbnail">
+							<a href="{% url 'index' %}" class="thumbnail btn-lg">
 								Buy Games
 							</a>
 						</div>
@@ -136,16 +134,72 @@
 		</div>
 
 	{% else %}
-		<div class="col-md-12">
+		<div class="col-md-12 well well-lg">
+			<div class="" id="tab-non-developer">
+				<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
+				<div class="col-md-4">
+					<a href="{% url 'index' %}" class="thumbnail btn-lg">
+						Buy Games
+					</a>
+				</div>
+				{% for game, purchasedWhen, count in boughtGames %}							
+					<div class="col-md-4 text-center" style="padding-bottom:30px;">
+						<div class="img-thumbnail text-center">
+							<div class="col-md-12">
+								<a href={% url "game" game.name %}>
+								   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+								</a>
+							</div>
+							<div class="col-md-12">
+								<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+								<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+							</div>
+							<div class="col-md-12 text-left game-description">
+								<h5 class="service-heading"><strong>Description:</strong></h5>
+								<p class="section-subheading text-muted">{{game.description}}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		
+		
+		<!--
 			<div class="well">
 				<div class="tab-content">
 					<div class="tab-pane fade in active" id="tab1">
-						<h3>This is tab 1</h3>
-						<button type="button" id="buy-game-btn" class="btn btn-info btn-lg">Buy Games</button>
+						<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
+						<div class="col-md-4">
+							<a href="{% url 'index' %}" class="thumbnail">
+								Buy Games
+							</a>
+						</div>
+						{% for game, purchasedWhen, count in boughtGames %}							
+							<div class="col-md-4 text-center" style="padding-bottom:30px;">
+								<div class="img-thumbnail text-center">
+									<div class="col-md-12">
+										<a href={% url "game" game.name %}>
+										   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+										</a>
+									</div>
+									<div class="col-md-12">
+										<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
+										<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+									</div>
+									<div class="col-md-12 text-left game-description">
+										<h5 class="service-heading"><strong>Description:</strong></h5>
+										<p class="section-subheading text-muted">{{game.description}}</p>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
-		</div>
+			
+		</div> -->
 	{% endif %}
 </div>
 

@@ -17,16 +17,19 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from . import views
+#from awsomeProject.core import views as core_views ###
 
 #TODO: Clean urls, make hierarchy
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name' : 'registration/logout.html'}, name='logout'),
+    url(r'^oauth/', include('social.apps.django_app.urls', namespace='social'), name = 'oauth'),  # <--
     url(r'^register/$', views.register, name='register'),
     url(r'^register/([0-9]+)/$', views.activation, name='activation'),
     url(r'^register/success/$', views.register_success),
     url(r'^$', views.home, name='index'),
+    url(r'^createGitHubProfile/$', views.createGitHubProfile, name='home'),
     #TODO: Change regex to W (word metacharacter)
     url(r'^game/([0-9a-zA-Z ]+)/$', views.game, name='game'),
     url(r'^game/[0-9a-zA-Z ]+/saveScore/$', views.saveScore, name='saveScore'),
