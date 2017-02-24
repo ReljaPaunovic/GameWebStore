@@ -178,3 +178,36 @@ SOCIAL_AUTH_GITHUB_SECRET = '616bbb6f2764c397898e36297864c4d73b35c588'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '328098844258094'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '4fdb11aa846b0ba6c067818c52c0d90a'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'MYAPP': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
