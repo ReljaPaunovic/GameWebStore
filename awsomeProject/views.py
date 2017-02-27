@@ -298,12 +298,15 @@ def buyGame(request, game_name):
         sid = "pandareljasharbel" #this is fxed for our service
         amount = game.price #this is game price queried form game table
 
+
+
         if  Transaction.objects.filter(game=game, user=request.user, status = "ongoing").exists(): #if the user hasn already gone to the transaction page previously
             transaction = Transaction.objects.get(game=game, user=request.user, status = "ongoing")
             transaction.pid = pid
             transaction.save()
         else:
             transaction = Transaction(user = request.user, game = game, pid = pid) #create a transaction row for them with the status "in process
+            transaction.save()
         #The next three could e implemented in one url and then the response parameter from the paymen service will be different
         success_url = request.build_absolute_uri("../payment")
         cancel_url =  success_url
@@ -400,7 +403,7 @@ def game(request, game_name):
             gameBought = True
         else:
             gameBought = False
-            # If the user uploadded game, let him play it
+            # If the user uploaded game, let him play it
             if DeveloperGame.objects.filter(user=request.user, game=game).exists():
                 gameBought = True
         comments = Comment.objects.all().filter(game=game).order_by("-created")
