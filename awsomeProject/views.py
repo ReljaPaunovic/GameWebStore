@@ -14,6 +14,7 @@ from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.backends import ModelBackend
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
@@ -70,7 +71,7 @@ def registerForAPI(request):
             user.save()
         return render(request, "registration/api.html", {"key" : user.key})
     else:
-        return Http404
+        return HttpResponse(status=404)
 
 def searchGamesAPI(request):
     #Cheeck identity through API key
@@ -221,7 +222,7 @@ def myProfile(request):
 
 		gamePurchases = zip(games, numberOfPurchasesList)	# gamePurchases referes to no of people purchased a game
 		#gamePurchases.append
-		
+
 		PurchasedGames = Transaction.objects.all().filter(user=request.user) #accessing purchased games list from Transaction Table
 		purchasedGames = []
 		purchasedWhen = []
@@ -255,7 +256,7 @@ def myProfile(request):
 
 		return render(request, "myProfile.html", {"userProfile" : userProfile, "boughtGames": boughtGames })
 
-						
+
 @login_required(login_url='/login/')
 @csrf_protect
 def editProfile(request):
@@ -371,13 +372,11 @@ def buyGameResult(request,game_name):
 #Main view where user plays game
 @login_required(login_url='/login/')
 def game(request, game_name):
-    print(request.FILES)
     try:
         game = Game.objects.get(name=game_name)
         gameURL = request.build_absolute_uri(reverse("game", args = (game_name, )))
         #gameURL = "google.com"
 
-        print (gameURL)
         # TODO: What if highscores dont exist
         scores = Scores.objects.all().filter(game=game).order_by("-score")
         #check if user has bought the game a.k.a. has access to it
@@ -398,7 +397,7 @@ def game(request, game_name):
         #print(userComments)
     # In case game does not exist, display 404
     except Game.DoesNotExist:
-        raise Http404
+        raise Http404()
     return render(request, "game.html", {"game" : game, "scores" : scores, "gameBought" : gameBought, "userComments": userComments, "gameURL" : gameURL})
 
 @login_required(login_url='/login/')
@@ -556,10 +555,10 @@ def activation(request,id):
     try:
         user = User.objects.get(id=id)
     except User.DoesNotExist:
-        return Http404
+        raise Http404()
     user.is_active=True
     user.save()
-    login(request, user)
+    login(request, user, backend='django.contrib.auth.backends.ModelBackend')
     return HttpResponseRedirect('/')
 
 # Not a view, just a function that sends email to user for validation
@@ -686,7 +685,7 @@ def manageGame(request, game_name):
 			game = Game.objects.get(name = game_name)
 
 		except Game.DoesNotExist:
-			raise Http404
+			raise Http404()
 
 	else:
 		return HttpResponseRedirect('/') #in case address is typed, this redirects them to home (secure stuff)
