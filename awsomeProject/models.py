@@ -78,9 +78,16 @@ class Rating(models.Model):
     rating = models.IntegerField()
 
 class Transaction(models.Model):
+	statusChoices = (
+		('ongoing','ongoing'),
+		('completed','completed'),
+		('canceled','canceled')
+	)
 	user = models.ForeignKey(User, on_delete = models.CASCADE)
 	game = models.ForeignKey('Game', on_delete = models.CASCADE)
+	status = models.CharField(choices = statusChoices, default="ongoing", max_length = 50)
 	timestamp = models.DateTimeField(default=now, editable=False)
+	pid = models.CharField(max_length = 20, default= '')
 
 class Photo(models.Model):
 	image = CloudinaryField('image')

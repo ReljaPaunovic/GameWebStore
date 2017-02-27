@@ -1,0 +1,175 @@
+[27/Feb/2017 18:40:58] DEBUG [django.db.backends:90] (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[27/Feb/2017 18:40:58] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[27/Feb/2017 18:41:09] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-27' AND '2017-02-27'; args=('2017-01-27', '2017-02-27')
+[27/Feb/2017 18:41:09] INFO [django.server:131] "GET / HTTP/1.1" 200 5260
+[27/Feb/2017 18:41:09] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 86713
+[27/Feb/2017 18:41:09] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[27/Feb/2017 18:41:10] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 200 135807
+[27/Feb/2017 18:41:10] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 200 564
+[27/Feb/2017 18:41:10] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121207
+[27/Feb/2017 18:41:10] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 200 2445
+[27/Feb/2017 18:41:10] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 200 483
+[27/Feb/2017 18:41:11] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 200 16089
+[27/Feb/2017 18:41:11] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 200 10724
+[27/Feb/2017 18:41:11] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 200 63667
+[27/Feb/2017 18:41:11] DEBUG [django.template:929] Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern login ^login/$>], [<RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\Users\\sharbel.dahlan\\AppData\\Local\\Programs\\Python\\Python35-32\\lib\\site-packages\\social\\apps\\django_app\\urls.py'> (None:social) ^oauth/>], [<RegexURLPattern register ^register/$>], [<RegexURLPattern activation ^register/([0-9]+)/$>], [<RegexURLPattern None ^register/success/$>], [<RegexURLPattern index ^$>], [<RegexURLPattern home ^createGitHubProfile/$>], [<RegexURLPattern game ^game/([0-9a-zA-Z ]+)/$>], [<RegexURLPattern saveScore ^game/[0-9a-zA-Z ]+/saveScore/$>], [<RegexURLPattern saveGame ^game/[0-9a-zA-Z ]+/saveGame/$>], [<RegexURLPattern loadGame ^game/[0-9a-zA-Z ]+/loadGame/$>], [<RegexURLPattern buyGame ^game/([0-9a-zA-Z ]+)/buyGame/$>], [<RegexURLPattern addComment ^game/([0-9a-zA-Z ]+)/addComment/$>], [<RegexURLPattern browseGames ^browseGames/$>], [<RegexURLPattern about ^about/$>], [<RegexURLPattern myProfile ^myProfile/$>], [<RegexURLPattern buyGameResult ^game/([0-9a-zA-Z ]+)/payment/$>], [<RegexURLPattern upload ^test/$>], [<RegexURLPattern editProfile ^myProfile/editProfile/$>], [<RegexURLPattern manageUploadedGames ^myProfile/manageUploadedGames/$>], [<RegexURLPattern manageGame ^myProfile/manageUploadedGames/([a-zA-Z0-9 ]+)/$>], [<RegexURLPattern registerForAPI ^registerForAPI/$>], [<RegexURLPattern searchGamesAPI ^searchGamesAPI/v1/$>], [<RegexURLPattern searchHighScoresAPI ^searchHighScoresAPI/v1/$>], [<RegexURLPattern searchGameSalesAPI ^searchGameSalesAPI/v1/$>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+[27/Feb/2017 18:41:11] DEBUG [django.template:929] Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern login ^login/$>], [<RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\Users\\sharbel.dahlan\\AppData\\Local\\Programs\\Python\\Python35-32\\lib\\site-packages\\social\\apps\\django_app\\urls.py'> (None:social) ^oauth/>], [<RegexURLPattern register ^register/$>], [<RegexURLPattern activation ^register/([0-9]+)/$>], [<RegexURLPattern None ^register/success/$>], [<RegexURLPattern index ^$>], [<RegexURLPattern home ^createGitHubProfile/$>], [<RegexURLPattern game ^game/([0-9a-zA-Z ]+)/$>], [<RegexURLPattern saveScore ^game/[0-9a-zA-Z ]+/saveScore/$>], [<RegexURLPattern saveGame ^game/[0-9a-zA-Z ]+/saveGame/$>], [<RegexURLPattern loadGame ^game/[0-9a-zA-Z ]+/loadGame/$>], [<RegexURLPattern buyGame ^game/([0-9a-zA-Z ]+)/buyGame/$>], [<RegexURLPattern addComment ^game/([0-9a-zA-Z ]+)/addComment/$>], [<RegexURLPattern browseGames ^browseGames/$>], [<RegexURLPattern about ^about/$>], [<RegexURLPattern myProfile ^myProfile/$>], [<RegexURLPattern buyGameResult ^game/([0-9a-zA-Z ]+)/payment/$>], [<RegexURLPattern upload ^test/$>], [<RegexURLPattern editProfile ^myProfile/editProfile/$>], [<RegexURLPattern manageUploadedGames ^myProfile/manageUploadedGames/$>], [<RegexURLPattern manageGame ^myProfile/manageUploadedGames/([a-zA-Z0-9 ]+)/$>], [<RegexURLPattern registerForAPI ^registerForAPI/$>], [<RegexURLPattern searchGamesAPI ^searchGamesAPI/v1/$>], [<RegexURLPattern searchHighScoresAPI ^searchHighScoresAPI/v1/$>], [<RegexURLPattern searchGameSalesAPI ^searchGameSalesAPI/v1/$>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\\\Users\\\\sharbel.dahlan\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python35-32\\\\lib\\\\site-packages\\\\social\\\\apps\\\\django_app\\\\urls.py'> (None:social) ^oauth/>"
+[27/Feb/2017 18:41:11] WARNING [django.request:152] Not Found: /favicon.ico
+[27/Feb/2017 18:41:11] WARNING [django.server:131] "GET /favicon.ico HTTP/1.1" 404 5531
+[27/Feb/2017 18:41:24] DEBUG [django.template:929] Exception while resolving variable 'required_css_class' in template 'bootstrapform/form.html'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 144, in __getitem__
+    field = self.fields[name]
+KeyError: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 150, in __getitem__
+    ', '.join(sorted(f for f in self.fields)),
+KeyError: "Key 'required_css_class' not found in 'AuthenticationForm'. Choices are: password, username."
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'AuthenticationForm' object has no attribute 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [required_css_class] in '<tr><th><label for="id_username">Username:</label></th><td><input autofocus="" class=" form-control" id="id_username" maxlength="254" name="username" type="text" required /></td></tr>\n<tr><th><label for="id_password">Password:</label></th><td><input class=" form-control" id="id_password" name="password" type="password" required /></td></tr>'
+[27/Feb/2017 18:41:24] DEBUG [django.template:929] Exception while resolving variable 'required_css_class' in template 'bootstrapform/form.html'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 144, in __getitem__
+    field = self.fields[name]
+KeyError: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 150, in __getitem__
+    ', '.join(sorted(f for f in self.fields)),
+KeyError: "Key 'required_css_class' not found in 'AuthenticationForm'. Choices are: password, username."
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'AuthenticationForm' object has no attribute 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [required_css_class] in '<tr><th><label for="id_username">Username:</label></th><td><input autofocus="" class=" form-control" id="id_username" maxlength="254" name="username" type="text" required /></td></tr>\n<tr><th><label for="id_password">Password:</label></th><td><input class=" form-control" id="id_password" name="password" type="password" required /></td></tr>'
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /login/ HTTP/1.1" 200 6161
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 18:41:24] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0

@@ -127,9 +127,9 @@ def searchGameSalesAPI(request):
             # first() is used to force database call
             developer = DeveloperGame.objects.all().filter(game=game).first()
             buyersAndTimestamps = []
-            if Transaction.objects.all().filter(game=game).exists(): #if the game has an entry in the Transactions table (i.e. someone bought it)
+            if Transaction.objects.all().filter(game=game, status='completed').exists(): #if the game has an entry in the Transactions table (i.e. someone bought it)
                 #then assign the transation values
-                Purchases = Transaction.objects.all().filter(game=game) #Querying from the transactions game table all objects whose game matches game_name
+                Purchases = Transaction.objects.all().filter(game=game, status='completed') #Querying from the transactions game table all objects whose game matches game_name
                 for purchase in Purchases:
                     buyersAndTimestamps.append({"bought by" : purchase.user.username, "on" : purchase.timestamp})
 
@@ -216,14 +216,14 @@ def myProfile(request):
 			#put the games in a list
 			games.append(developerGame.game) # developerGame is an instance (a row in the database table) of DeveloperGames
 			#print(games)
-			Purchases = Transaction.objects.all().filter(game=developerGame.game)	# Querying from the Transaction table
+			Purchases = Transaction.objects.all().filter(game=developerGame.game, status='completed')	# Querying from the Transaction table
 																					# all transactions objects with games matching the chosen game
 			numberOfPurchasesList.append(len(Purchases))
 
 		gamePurchases = zip(games, numberOfPurchasesList)	# gamePurchases referes to no of people purchased a game
 		#gamePurchases.append
 
-		PurchasedGames = Transaction.objects.all().filter(user=request.user) #accessing purchased games list from Transaction Table
+		PurchasedGames = Transaction.objects.all().filter(user=request.user, status='completed') #accessing purchased games list from Transaction Table
 		purchasedGames = []
 		purchasedWhen = []
 		counts = []
@@ -241,7 +241,7 @@ def myProfile(request):
 
 	else:
 		#All games the user purchased
-		PurchasedGames = Transaction.objects.all().filter(user=request.user) #accessing purchased games list from Transaction Table
+		PurchasedGames = Transaction.objects.all().filter(user=request.user, status='completed') #accessing purchased games list from Transaction Table
 		purchasedGames = []
 		purchasedWhen = []
 		counts = []
@@ -298,9 +298,13 @@ def buyGame(request, game_name):
         sid = "pandareljasharbel" #this is fxed for our service
         amount = game.price #this is game price queried form game table
 
-
-
-        #The next three could be implemented in one url and then the response parameter from the paymen service will be different
+        if  Transaction.objects.filter(game=game, user=request.user, status = "ongoing").exists(): #if the user hasn already gone to the transaction page previously
+            transaction = Transaction.objects.get(game=game, user=request.user, status = "ongoing")
+            transaction.pid = pid
+            transaction.save()
+        else:
+            transaction = Transaction(user = request.user, game = game, pid = pid) #create a transaction row for them with the status "in process
+        #The next three could e implemented in one url and then the response parameter from the paymen service will be different
         success_url = request.build_absolute_uri("../payment")
         cancel_url =  success_url
         error_url =  success_url
@@ -308,11 +312,12 @@ def buyGame(request, game_name):
         #The checksum is calculated from pid, sid, amount, and your secret key. The string is formed like this:
         checksumstr = "pid={}&sid={}&amount={}&token={}".format(pid, sid, amount, secret_key)
 
-
         # checksumstr is the string concatenated above
         m = md5(checksumstr.encode("ascii"))
         # checksum is the value that should be used in the payment request
         checksum = m.hexdigest()
+
+
 
 
         return render(request, "buyGame.html", {"pid": pid, "sid":sid, "amount":amount,
@@ -349,23 +354,34 @@ def buyGameResult(request,game_name):
             if( result == 'error'):
                 #'pass' if you comment the rest and don't want to do anything here
                 response = "Oops.. Something went wrong with the payment. Don't worry, your money is still in your pocket, though."
-                #raise Http404
+                return render(request, "buyGameResult.html", {'response' : response})
 
             if( result == 'success'):
-                user = request.user #The user is passed from "request"
                 game= Game.objects.get(name=game_name) #query the game from the Game object
-                timestamp = datetime.now()
-                transaction = Transaction(user=user,game=game, timestamp= timestamp)
-                transaction.save() #save the transactio to the database
-                return HttpResponseRedirect('/game/'+game_name+'/')
+                try:
+                    transaction = Transaction.objects.get(user = request.user, game = game, status = "ongoing", pid = pid)
+                except Transaction.DoesNotExist:
+                    transaction = None
+                if transaction != None:
+                    transaction.status = "completed"
+                    transaction.timestamp = datetime.now()
+                    transaction.save() #save the transactio to the database
+
+                    return HttpResponseRedirect('/game/'+game_name+'/')
+                else:
+                    return HttpResponseRedirect('/')
+
 
             if( result == 'cancel'):
-                response = 'cancel'
+                game= Game.objects.get(name=game_name) #query the game from the Game object
+                try:
+                    transaction = Transaction.objects.get(user = request.user, game = game, status = "ongoing", pid = pid)
+                except Transaction.DoesNotExist:
+                    transaction = None
+                if transaction != None:
+                    transaction.status = "canceled"
+                    transaction.save()
                 return HttpResponseRedirect('/game/'+game_name+'/')
-
-            print(root)
-            return render(request, "buyGameResult.html", {'response' : response})
-
     else:
         return HttpResponse('Not authorised')
 
@@ -380,7 +396,7 @@ def game(request, game_name):
         # TODO: What if highscores dont exist
         scores = Scores.objects.all().filter(game=game).order_by("-score")
         #check if user has bought the game a.k.a. has access to it
-        if Transaction.objects.filter(game=game, user=request.user).exists():
+        if Transaction.objects.filter(game=game, user=request.user, status='completed').exists():
             gameBought = True
         else:
             gameBought = False
@@ -607,7 +623,7 @@ def manageUploadedGames(request):
 			games.append(developerGame.game) # developerGame is an instance (a row in the database table) of DeveloperGames
 			#print(games)
 
-			Purchases = Transaction.objects.all().filter(game=developerGame.game) 	# Querying from the Transaction table the all transactions objects
+			Purchases = Transaction.objects.all().filter(game=developerGame.game, status='completed') 	# Querying from the Transaction table the all transactions objects
 																					# with games matching the chosen game
 			numberOfPurchasesList.append(len(Purchases))
 
@@ -617,7 +633,7 @@ def manageUploadedGames(request):
 		return HttpResponseRedirect('/') #in case address is typed, this redirects them to home (secure stuff)
 	#games = DeveloperGame.objects.get(user=request.user, game = request.game) #QUERY the games by this developer (.get or .filter?)
 
-	PurchasedGames = Transaction.objects.all().filter(user=request.user)
+	PurchasedGames = Transaction.objects.all().filter(user=request.user, status='completed')
 	purchasedGames = []
 	purchasedWhen = []
 	for boughtGame in PurchasedGames:
@@ -670,7 +686,7 @@ def manageGame(request, game_name):
 				success = False
 
 			#View game sales in a list of buyer names and timestamps
-			Purchases = Transaction.objects.all().filter(game=game) #Querying from the transactions game table all objects whose game matches game_name
+			Purchases = Transaction.objects.all().filter(game=game, status='completed') #Querying from the transactions game table all objects whose game matches game_name
 			buyers = []
 			timestamps = []
 			counts = []
