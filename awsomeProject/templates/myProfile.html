@@ -11,7 +11,7 @@
 
 
 <div class="col-md-12">
-	<div class="col-md-12">
+	<div class="">
 		<div class="col-md-3 text-center" style="float: none; margin: 0 auto">
 			<div class="col-md-12">
 				{% cloudinary 'WSD/profile_mockup.png' height=150 width=150 crop="fill" secure=True class="img-circle img-responsive" style="display:block; margin:auto" %}
@@ -25,17 +25,17 @@
 
 	{% if userProfile.isDeveloper %}
 		<div class="col-md-12" style="margin-bottom:20px">
-			<div class="col-md-4">
+			<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-sm-5 col-sm-offset-1">
 				<a href="{% url 'registerForAPI' %}" class="thumbnail btn-lg">
 					Request API Key
 				</a>
 			</div>
-			<div class="col-md-4">
+			<!-- <div class="col-md-4 col-sm-4">
 				<a href="{% url 'editProfile' %}" class="thumbnail btn-lg">
 					Edit Profile
 				</a>
-			</div>
-			<div class="col-md-4">
+			</div>-->
+			<div class="col-md-4 col-sm-4 col-sm-5">
 				<a href="{% url 'index' %}" class="thumbnail btn-lg">
 					Buy Games
 				</a>
@@ -43,7 +43,7 @@
 		</div>
 	
 		<div class="col-md-12">
-			<div>
+			<div class="">
 				<div class="col-md-4 col-sm-4 btn-pref">
 					<a class="btn btn-block btn-lg thumbnail" href="#tab1" id="create-new-game" data-toggle="tab">Add New Game</a>				
 				</div>
@@ -55,12 +55,12 @@
 				</div>
 			</div>
 			
-			<div class="highlight col-md-12">
-				<div class="tab-content">
+			<div class="col-md-12" style="top: -20px">
+				<div class="tab-content col-sm-12 col-xs-12 highlight">
 					<div class="tab-pane fade in" id="tab1">
-						<div class="col-md-10">
+						<div class="col-md-12">
 							<div id="new-game" class="">
-								<div class="col-md-10 col-md-offset-2">
+								<div class="col-md-8 col-md-offset-2">
 									{% if success %}
 									<div class="alert alert-success alert-dismissible" role="alert">
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -103,10 +103,10 @@
 											</div>
 											<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
 												<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a><br>
-												<a href={% url "manageGame" game.name %} style="color:#ddd;">Manage Game</a>
+												<a href={% url "manageGame" game.name %}>Manage Game</a>
 											</div>
 											
-											<div class="col-md-12 text-left game-description1 highlight">
+											<div class="col-md-12 text-left game-description1">
 												<p> Number of Purchases: {{numberOfPurchases}}</p>
 												<span><strong>Description:</strong></span>
 												<p class="section-subheading text-muted">{{game.description}}</p>
@@ -120,25 +120,22 @@
 
 					<div class="tab-pane fade in" id="tab3">
 						<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
-						<!--<div class="col-md-4">
-							<a href="{% url 'index' %}" class="thumbnail btn-lg">
-								Buy Games
-							</a>
-						</div>-->
 						{% for game, purchasedWhen, count in boughtGames %}
 							<div class="col-md-4 text-center" style="padding-bottom:30px;">
 								<div class="img-thumbnail text-center">
-									<div class="col-md-12">
+									<div class="col-md-12 bd-example">
 										<a href={% url "game" game.name %}>
 										   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
 										</a>
 									</div>
-									<div class="col-md-12">
-										<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
-										<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
+									<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
+										<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a>
+										<div class="">
+											<span class="glyphicon glyphicon-euro" style="font-weight: 900; padding:5px;">{{game.price}}</span>
+										</div>
 									</div>
 									<div class="col-md-12 text-left game-description1">
-										<h5 class="service-heading"><strong>Description:</strong></h5>
+										<span><strong>Description:</strong></span>
 										<p class="section-subheading text-muted">{{game.description}}</p>
 									</div>
 								</div>
@@ -151,73 +148,52 @@
 		</div>
 
 	{% else %}
-		<div class="col-md-12" style="margin-bottom:20px">
-			<div class="col-md-4 col-md-offset-1">
-				<a href="{% url 'editProfile' %}" class="thumbnail btn-lg">
-					Edit Profile
-				</a>
-			</div>
-			<div class="col-md-4 col-md-offset-1">
-				<a href="{% url 'index' %}" class="thumbnail btn-lg">
-					Buy Games
-				</a>
-			</div>
-		</div>
-		
-		<div class="col-md-12 well well-lg">
-			<div class="" id="tab-non-developer">
-				<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
-				<div class="col-md-4">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="col-md-12" style="margin-bottom:20px">
+				<!-- <div class="col-md-4 col-md-offset-2">
+					<a href="{% url 'editProfile' %}" class="thumbnail btn-lg">
+						Edit Profile
+					</a>
+				</div> -->
+				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
 					<a href="{% url 'index' %}" class="thumbnail btn-lg">
 						Buy Games
 					</a>
 				</div>
-				{% for game, purchasedWhen, count in boughtGames %}							
-					<div class="col-md-4 text-center" style="padding-bottom:30px;">
-						<div class="img-thumbnail text-center">
-							<div class="col-md-12">
-								<a href={% url "game" game.name %}>
-								   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
-								</a>
-							</div>
-							<div class="col-md-12">
-								<a href={% url "game" game.name %}> <h4 class="service-heading">{{game.name}}<h4></a>
-								<h5 class="section-subheading text-muted">[ {{game.category}} ]</h5>
-							</div>
-							<div class="col-md-12 text-left game-description">
-								<h5 class="service-heading"><strong>Description:</strong></h5>
-								<p class="section-subheading text-muted">{{game.description}}</p>
-							</div>
+			</div>
+			
+			<div class="col-md-12">
+				<div class="tab-content col-sm-12 col-xs-12 highlight">
+					<div class="tab-pane fade in active">
+						<div class="" id="tab-non-developer">
+							<label class="control-label text-center section-font col-md-12" style="margin-bottom: 20px; margin-top: 20px">Purchased Games</label>
+							{% for game, purchasedWhen, count in boughtGames %}							
+								<div class="col-md-4 text-center" style="padding-bottom:30px;">
+									<div class="img-thumbnail text-center">
+										<div class="col-md-12 bd-example">
+											<a href={% url "game" game.name %}>
+											   {% cloudinary game.image width=600 height=200 crop="fill" class="img-responsive" style="display:block; margin:none" %}
+											</a>
+										</div>
+										<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
+											<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a>
+											<div class="">
+												<span class="glyphicon glyphicon-euro" style="font-weight: 900; padding:5px;">{{game.price}}</span>
+											</div>
+										</div>
+										<div class="col-md-12 text-left game-description1">
+											<span><strong>Description:</strong></span>
+											<p class="section-subheading text-muted">{{game.description}}</p>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
 						</div>
 					</div>
-				{% endfor %}
+				</div>
 			</div>
 		</div>
 	{% endif %}
 </div>
 
 {% endblock %}
-
-<!-- ##############################################   donot remove this please
-							{% if posted %}
-								<div class="results">
-									{% if posted.errors %}
-									Errors: {{ posted.errors }}
-									{% else %}
-									<div class="uploaded_info">
-										<div class="data">
-										<table>
-											{% for key, value in posted.image.metadata.items %}
-												<tr><td>{{ key }}</td><td>{{ value }}</td></tr>
-											{% endfor %}
-										</table>
-										</div>
-										<div class="image">
-											{% load cloudinary %}
-											{% cloudinary posted.image THUMBNAIL %}
-										</div>
-									</div>
-									{% endif %}
-								</div>
-							{% endif %}
-							-->

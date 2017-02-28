@@ -6,14 +6,15 @@
 {% endblock %}
 
 {% block main %}
-
+ <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+ 
 <div class="col-md-12" id="home">
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
 				{% if user.is_authenticated %}
 				<div class="col-md-12 text-center">
-					<div class="section-font">Welcome Back {{ user.username }}!</div>
+					<div class="section-font">Welcome {{ user.username }}!</div>
 					<div class="section-font">It's Nice To Meet You</div>
 				</div>
 				{% else %}
@@ -47,7 +48,7 @@
 				</div>
 				<div class="col-md-12 highlight" style="padding-bottom:5px; margin-bottom:10px;">
 					<a href={% url "game" game.name %}> <span class="service-heading">{{game.name}}</span><span> [ {{game.category}} ]</span></a><br>
-					<span class="section-subheading text-danger">
+					<span class="">
 						<span class="glyphicon glyphicon-euro" style="font-weight: 900; padding:5px;">{{game.price}}</span>
 					</span>
 				</div>

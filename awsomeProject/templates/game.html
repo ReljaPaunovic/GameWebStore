@@ -2,6 +2,18 @@
 {%load bootstrap %}
 
 {% block main %}
+
+<header>
+  <!-- Open Graph Tags for customized facebook sharing-->
+	<meta property="og:site_name"          content="Awsome JS Games Store" />
+	<meta property="og:url"                content="{{ gameURL }}" />
+	<meta property="og:title"              content="If you're not playing {{ game.name }}, you sure are missing out!" />
+	<meta property="og:description"        content="People are giong nuts about this Awsome JS Games Store.. it's the real deal!" />
+	<meta property="og:image"              content="{{game.image}}" />
+
+</header>
+
+
 <!-- Move this to a STATIC folder -->
 <script>
   window.addEventListener("message", receiveMessage, false);
@@ -27,7 +39,7 @@
           url: "saveGame/",
           data: requestData,
           success: function(data){
-              alert(data);
+              //alert(data);
           },
           error: function(msg){
               alert( "There is an error with the server." );
@@ -69,7 +81,7 @@
           data: requestData,
           success: function(data){
               //TODO: dont reload whole page, make it like a AJAX call to refresh highscores only
-                alert(data);
+                //alert(data);
                 // Refresh page to see newly updated highscores
                 location.reload();
           },
@@ -87,7 +99,7 @@
         data: {"comment" : $("#comment").val()},
         success: function(data){
             //TODO: dont reload whole page, make it like a AJAX call to refresh highscores only
-              alert(data);
+              //alert(data);
               // Refresh page to see newly updated highscores
               location.reload();
         },
@@ -154,7 +166,7 @@
 				</div>
 				<button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 30px; margin-bottom: 30px">Submit</button>
 			</form>
-		
+
 
 		<!-- TODO: Represent all comments for this game in following way -->
 

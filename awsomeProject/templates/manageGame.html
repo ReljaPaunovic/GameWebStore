@@ -10,7 +10,13 @@
 {% block main %}
 
 <div class="col-md-12">
-
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<p>{{messageOfUpdate}}</p>
+	</div>
+	
 	<div class="col-md-6 col-sm-6 highlight">
 		<div id='backend_upload'>
 			<label class="section-font control-label">Update {{game.name}}</label>
@@ -47,10 +53,6 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-	
-	<div>
-		<p>{{messageOfUpdate}}</p>
 	</div>
 	
 </div>
