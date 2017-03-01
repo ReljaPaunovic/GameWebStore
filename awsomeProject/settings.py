@@ -30,7 +30,9 @@ SECRET_KEY = "p9=e2r0tg-s+e)tde4#4@5ectu0(@@nd*=9_r!2*$j1t=yp7y_"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 # Allow all host headers
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 LOGIN_REDIRECT_URL = 'index'
