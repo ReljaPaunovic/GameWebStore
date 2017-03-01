@@ -1,17 +1,27 @@
 {% extends "base.html" %}
+
 {%load bootstrap %}
 
-{% block main %}
+{% block scriptsAndStylesheets %}
 
-<header>
   <!-- Open Graph Tags for customized facebook sharing-->
 	<meta property="og:site_name"          content="Awsome JS Games Store" />
 	<meta property="og:url"                content="{{ gameURL }}" />
 	<meta property="og:title"              content="If you're not playing {{ game.name }}, you sure are missing out!" />
-	<meta property="og:description"        content="People are giong nuts about this Awsome JS Games Store.. it's the real deal!" />
+	<meta property="og:description"        content="People are going nuts over this Awsome JS Games Store.. it's the real deal!" />
 	<meta property="og:image"              content="{{game.image}}" />
+  <meta property="og:type"               content="product" />
+  <meta property="fb:app_id"             content="328098844258094" />
 
-</header>
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="If you're not playing {{ game.name }}, you sure are missing out!">
+	<meta name="twitter:description" content="People are going nuts over this Awsome JS Games Store.. it's the real deal!">
+	<meta name="twitter:image" content="{{game.image}}">
+{% endblock %}
+
+{%load bootstrap %}
+
+{% block main %}
 
 
 <!-- Move this to a STATIC folder -->
@@ -126,10 +136,9 @@
 				</div>
 			{% endif %}
 
-      <a href="https://www.facebook.com/sharer/sharer.php?status=Check%20out%20this%20%23AwsomeGame%20called%20%22{{ game.name }}%22%20on%20AwsomeGames%3A%20{{ gameURL }}" target="_blank" class="st_sharethis" st_url="http://sharethis.com" st_title="Sharing is great!">
+      <a href="https://www.facebook.com/sharer/sharer.php" target="_blank">
         Share on Facebook
       </a>
-			<a href="https://www.facebook.com/sharer/sharer.php" target="_blank"> asd </a>
       <a href="https://twitter.com/home?status=Check%20out%20this%20%23AwsomeGame%20called%20%22{{ game.name }}%22%20on%20AwsomeGames%3A%20{{ gameURL }}" target="_blank">
         Share on Twitter
       </a>

@@ -6303,3 +6303,389 @@ Traceback (most recent call last):
     social_user.provider)
 AttributeError: 'NoneType' object has no attribute 'provider'
 [27/Feb/2017 20:59:27] ERROR [django.server:131] "GET /oauth/complete/facebook/?redirect_state=j3CfxYR1gnPrSBEpYTpPFnuaLNJwP6rp&code=AQDp2gtPZuUsZWV_QvaiQDm53OHvLwdxXI7gYbrrviNbiCtZqxbKse07DTP8d3XWHfm7U0KAVJ_QBUfJdoKU3-ddAFCoqIPz0wDxTY2Pen-KxHTIPb-o1hkVJwhg-kmCL1UalBBY2sezmKN3ilaynJxNA6uBbotbV24f8SrMKjlgbzSIjsLot8Ml5v6D9zl9lUx19BhvsuskFJzEzHDe4pN99NZlY2cMq8OAuOpPEyFF9neZ6rBp_WR5qqSioMYLvnB18DrIWKJDK_7nXQqO7dhRGf4WVlJ1-1K9Id4_AA-Kc1xs_5avFKTflvdRlZdE3rm5euYl_Ub3jyc9Uq_Sdh46&state=j3CfxYR1gnPrSBEpYTpPFnuaLNJwP6rp HTTP/1.1" 500 99274
+[27/Feb/2017 21:31:50] DEBUG [django.db.backends:90] (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'drr8hoesf6qrwn1yk4bu04ug8153phq2' AND "django_session"."expire_date" > '2017-02-27 19:31:50.515515'); args=('drr8hoesf6qrwn1yk4bu04ug8153phq2', '2017-02-27 19:31:50.515515')
+[27/Feb/2017 21:31:50] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-27' AND '2017-02-27'; args=('2017-01-27', '2017-02-27')
+[27/Feb/2017 21:31:50] INFO [django.server:131] "GET / HTTP/1.1" 200 5824
+[27/Feb/2017 21:31:50] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:50] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:51] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:52] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:52] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:52] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[27/Feb/2017 21:31:53] DEBUG [django.template:929] Exception while resolving variable 'required_css_class' in template 'bootstrapform/form.html'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 144, in __getitem__
+    field = self.fields[name]
+KeyError: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 150, in __getitem__
+    ', '.join(sorted(f for f in self.fields)),
+KeyError: "Key 'required_css_class' not found in 'AuthenticationForm'. Choices are: password, username."
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'AuthenticationForm' object has no attribute 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [required_css_class] in '<tr><th><label for="id_username">Username:</label></th><td><input autofocus="" class=" form-control" id="id_username" maxlength="254" name="username" type="text" required /></td></tr>\n<tr><th><label for="id_password">Password:</label></th><td><input class=" form-control" id="id_password" name="password" type="password" required /></td></tr>'
+[27/Feb/2017 21:31:53] DEBUG [django.template:929] Exception while resolving variable 'required_css_class' in template 'bootstrapform/form.html'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 144, in __getitem__
+    field = self.fields[name]
+KeyError: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\forms\forms.py", line 150, in __getitem__
+    ', '.join(sorted(f for f in self.fields)),
+KeyError: "Key 'required_css_class' not found in 'AuthenticationForm'. Choices are: password, username."
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'AuthenticationForm' object has no attribute 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'required_css_class'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [required_css_class] in '<tr><th><label for="id_username">Username:</label></th><td><input autofocus="" class=" form-control" id="id_username" maxlength="254" name="username" type="text" required /></td></tr>\n<tr><th><label for="id_password">Password:</label></th><td><input class=" form-control" id="id_password" name="password" type="password" required /></td></tr>'
+[27/Feb/2017 21:31:53] INFO [django.server:131] "GET /login/ HTTP/1.1" 200 5202
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:54] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[27/Feb/2017 21:31:56] DEBUG [django.db.backends:90] (0.004) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = '4es0gdq81u3ixz78c5379fkephwk7fsu' LIMIT 1; args=('4es0gdq81u3ixz78c5379fkephwk7fsu',)
+[27/Feb/2017 21:31:56] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:56] DEBUG [django.db.backends:90] (0.008) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT '4es0gdq81u3ixz78c5379fkephwk7fsu', 'NzIzNGEwOTk2OWY1NDIwZmIwNGQzMGIyMGY4ZjBmMzQ5NDMzNjg0ZTp7ImdpdGh1Yl9zdGF0ZSI6Im85dW1SZzdycU1ueFc4Y0JPUkt2bW1ReVhlaFBWSG8xIn0=', '2017-03-13 19:31:56.538959'; args=('4es0gdq81u3ixz78c5379fkephwk7fsu', 'NzIzNGEwOTk2OWY1NDIwZmIwNGQzMGIyMGY4ZjBmMzQ5NDMzNjg0ZTp7ImdpdGh1Yl9zdGF0ZSI6Im85dW1SZzdycU1ueFc4Y0JPUkt2bW1ReVhlaFBWSG8xIn0=', '2017-03-13 19:31:56.538959')
+[27/Feb/2017 21:31:56] INFO [django.server:131] "GET /oauth/login/github/ HTTP/1.1" 302 0
+[27/Feb/2017 21:31:57] DEBUG [django.db.backends:90] (0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '4es0gdq81u3ixz78c5379fkephwk7fsu' AND "django_session"."expire_date" > '2017-02-27 19:31:57.142052'); args=('4es0gdq81u3ixz78c5379fkephwk7fsu', '2017-02-27 19:31:57.142052')
+[27/Feb/2017 21:31:58] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" IS NULL; args=()
+[27/Feb/2017 21:31:58] DEBUG [django.db.backends:90] (0.000) SELECT "social_auth_usersocialauth"."id", "social_auth_usersocialauth"."user_id", "social_auth_usersocialauth"."provider", "social_auth_usersocialauth"."uid", "social_auth_usersocialauth"."extra_data", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "social_auth_usersocialauth" INNER JOIN "auth_user" ON ("social_auth_usersocialauth"."user_id" = "auth_user"."id") WHERE ("social_auth_usersocialauth"."provider" = 'github' AND "social_auth_usersocialauth"."uid" = '15886269'); args=('github', '15886269')
+[27/Feb/2017 21:31:58] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:58] DEBUG [django.db.backends:90] (0.004) UPDATE "social_auth_usersocialauth" SET "user_id" = 2, "provider" = 'github', "uid" = '15886269', "extra_data" = '{"id": 15886269, "access_token": "5ce6e8c73f8018b3ba4618db9657e2f3b0a2c40d", "token_type": "bearer", "expires": null, "login": "sharbeldahlan"}' WHERE "social_auth_usersocialauth"."id" = 1; args=(2, 'github', '15886269', '{"id": 15886269, "access_token": "5ce6e8c73f8018b3ba4618db9657e2f3b0a2c40d", "token_type": "bearer", "expires": null, "login": "sharbeldahlan"}', 1)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts' LIMIT 1; args=('f44er372zvvu7jv1k7m771xxjohdzhts',)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.003) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT 'f44er372zvvu7jv1k7m771xxjohdzhts', 'NzIzNGEwOTk2OWY1NDIwZmIwNGQzMGIyMGY4ZjBmMzQ5NDMzNjg0ZTp7ImdpdGh1Yl9zdGF0ZSI6Im85dW1SZzdycU1ueFc4Y0JPUkt2bW1ReVhlaFBWSG8xIn0=', '2017-03-13 19:31:59.013700'; args=('f44er372zvvu7jv1k7m771xxjohdzhts', 'NzIzNGEwOTk2OWY1NDIwZmIwNGQzMGIyMGY4ZjBmMzQ5NDMzNjg0ZTp7ImdpdGh1Yl9zdGF0ZSI6Im85dW1SZzdycU1ueFc4Y0JPUkt2bW1ReVhlaFBWSG8xIn0=', '2017-03-13 19:31:59.013700')
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = '4es0gdq81u3ixz78c5379fkephwk7fsu'; args=('4es0gdq81u3ixz78c5379fkephwk7fsu',)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('4es0gdq81u3ixz78c5379fkephwk7fsu'); args=('4es0gdq81u3ixz78c5379fkephwk7fsu',)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.004) UPDATE "auth_user" SET "last_login" = '2017-02-27 19:31:59.049761' WHERE "auth_user"."id" = 2; args=('2017-02-27 19:31:59.049761', 2)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) BEGIN; args=None
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.004) UPDATE "django_session" SET "session_data" = 'Zjc5YmNmZWZmYTlhOWQ5NzEyYzYwZDZhNzU3MDhmNGZlMmU3Y2Q0Nzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmdpdGh1Yi5HaXRodWJPQXV0aDIiLCJfYXV0aF91c2VyX2hhc2giOiIyMDE0MDdkMGIyZWU5MTFlMjgyNWIwMDk4OWZiMTk5ZDFmNzY5NWJhIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoiZ2l0aHViIiwiZ2l0aHViX3N0YXRlIjoibzl1bVJnN3JxTW54VzhjQk9SS3ZtbVF5WGVoUFZIbzEifQ==', "expire_date" = '2017-03-13 19:31:59.073772' WHERE "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'; args=('Zjc5YmNmZWZmYTlhOWQ5NzEyYzYwZDZhNzU3MDhmNGZlMmU3Y2Q0Nzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmdpdGh1Yi5HaXRodWJPQXV0aDIiLCJfYXV0aF91c2VyX2hhc2giOiIyMDE0MDdkMGIyZWU5MTFlMjgyNWIwMDk4OWZiMTk5ZDFmNzY5NWJhIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoiZ2l0aHViIiwiZ2l0aHViX3N0YXRlIjoibzl1bVJnN3JxTW54VzhjQk9SS3ZtbVF5WGVoUFZIbzEifQ==', '2017-03-13 19:31:59.073772', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[27/Feb/2017 21:31:59] INFO [django.server:131] "GET /oauth/complete/github/?redirect_state=o9umRg7rqMnxW8cBORKvmmQyXehPVHo1&code=5d37c5cb60b4e98efaa6&state=o9umRg7rqMnxW8cBORKvmmQyXehPVHo1 HTTP/1.1" 302 0
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts' AND "django_session"."expire_date" > '2017-02-27 19:31:59.417465'); args=('f44er372zvvu7jv1k7m771xxjohdzhts', '2017-02-27 19:31:59.417465')
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_userprofile"."user_id", "awsomeProject_userprofile"."isDeveloper", "awsomeProject_userprofile"."key" FROM "awsomeProject_userprofile" WHERE "awsomeProject_userprofile"."user_id" = 2; args=(2,)
+[27/Feb/2017 21:31:59] INFO [django.server:131] "GET /createGitHubProfile/ HTTP/1.1" 302 0
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts' AND "django_session"."expire_date" > '2017-02-27 19:31:59.702212'); args=('f44er372zvvu7jv1k7m771xxjohdzhts', '2017-02-27 19:31:59.702212')
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[27/Feb/2017 21:31:59] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-27' AND '2017-02-27'; args=('2017-01-27', '2017-02-27')
+[27/Feb/2017 21:31:59] INFO [django.server:131] "GET / HTTP/1.1" 200 6015
+[27/Feb/2017 21:31:59] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:00] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.003) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts' AND "django_session"."expire_date" > '2017-02-27 19:32:05.366424'); args=('f44er372zvvu7jv1k7m771xxjohdzhts', '2017-02-27 19:32:05.366424')
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."status" = 'completed' AND "awsomeProject_transaction"."game_id" = 1) LIMIT 1; args=(2, 'completed', 1)
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[27/Feb/2017 21:32:05] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 10073
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:05] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[27/Feb/2017 21:32:56] DEBUG [django.db.backends:90] (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[27/Feb/2017 21:32:56] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[27/Feb/2017 21:33:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts' AND "django_session"."expire_date" > '2017-02-27 19:33:01.882034'); args=('f44er372zvvu7jv1k7m771xxjohdzhts', '2017-02-27 19:33:01.882034')
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."status" = 'completed' AND "awsomeProject_transaction"."game_id" = 1) LIMIT 1; args=(2, 'completed', 1)
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[27/Feb/2017 21:33:02] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 9995
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[27/Feb/2017 21:33:02] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 15:51:08] DEBUG [django.db.backends:90] (0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[28/Feb/2017 15:51:08] DEBUG [django.db.backends:90] (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[28/Feb/2017 15:52:17] DEBUG [django.db.backends:90] (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[28/Feb/2017 15:52:17] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[28/Feb/2017 16:59:34] DEBUG [django.db.backends:90] (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[28/Feb/2017 16:59:34] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[28/Feb/2017 17:06:20] DEBUG [django.db.backends:90] (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 15:06:20.409666' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 15:06:20.409666', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 17:06:20] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 17:06:20] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-28' AND '2017-02-28'; args=('2017-01-28', '2017-02-28')
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET / HTTP/1.1" 200 6015
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 86713
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37051
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 200 135807
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 200 564
+[28/Feb/2017 17:06:20] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121207
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 200 2445
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 200 483
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 200 16089
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 200 10724
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 200 63667
+[28/Feb/2017 17:06:21] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[28/Feb/2017 17:06:22] DEBUG [django.template:929] Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern login ^login/$>], [<RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\Users\\sharbel.dahlan\\AppData\\Local\\Programs\\Python\\Python35-32\\lib\\site-packages\\social\\apps\\django_app\\urls.py'> (None:social) ^oauth/>], [<RegexURLPattern register ^register/$>], [<RegexURLPattern activation ^register/([0-9]+)/$>], [<RegexURLPattern None ^register/success/$>], [<RegexURLPattern index ^$>], [<RegexURLPattern home ^createGitHubProfile/$>], [<RegexURLPattern game ^game/([0-9a-zA-Z ]+)/$>], [<RegexURLPattern saveScore ^game/[0-9a-zA-Z ]+/saveScore/$>], [<RegexURLPattern saveGame ^game/[0-9a-zA-Z ]+/saveGame/$>], [<RegexURLPattern loadGame ^game/[0-9a-zA-Z ]+/loadGame/$>], [<RegexURLPattern buyGame ^game/([0-9a-zA-Z ]+)/buyGame/$>], [<RegexURLPattern addComment ^game/([0-9a-zA-Z ]+)/addComment/$>], [<RegexURLPattern browseGames ^browseGames/$>], [<RegexURLPattern about ^about/$>], [<RegexURLPattern myProfile ^myProfile/$>], [<RegexURLPattern buyGameResult ^game/([0-9a-zA-Z ]+)/payment/$>], [<RegexURLPattern upload ^test/$>], [<RegexURLPattern editProfile ^myProfile/editProfile/$>], [<RegexURLPattern manageUploadedGames ^myProfile/manageUploadedGames/$>], [<RegexURLPattern manageGame ^myProfile/manageUploadedGames/([a-zA-Z0-9 ]+)/$>], [<RegexURLPattern registerForAPI ^registerForAPI/$>], [<RegexURLPattern searchGamesAPI ^searchGamesAPI/v1/$>], [<RegexURLPattern searchHighScoresAPI ^searchHighScoresAPI/v1/$>], [<RegexURLPattern searchGameSalesAPI ^searchGameSalesAPI/v1/$>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+[28/Feb/2017 17:06:22] DEBUG [django.template:929] Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern login ^login/$>], [<RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\Users\\sharbel.dahlan\\AppData\\Local\\Programs\\Python\\Python35-32\\lib\\site-packages\\social\\apps\\django_app\\urls.py'> (None:social) ^oauth/>], [<RegexURLPattern register ^register/$>], [<RegexURLPattern activation ^register/([0-9]+)/$>], [<RegexURLPattern None ^register/success/$>], [<RegexURLPattern index ^$>], [<RegexURLPattern home ^createGitHubProfile/$>], [<RegexURLPattern game ^game/([0-9a-zA-Z ]+)/$>], [<RegexURLPattern saveScore ^game/[0-9a-zA-Z ]+/saveScore/$>], [<RegexURLPattern saveGame ^game/[0-9a-zA-Z ]+/saveGame/$>], [<RegexURLPattern loadGame ^game/[0-9a-zA-Z ]+/loadGame/$>], [<RegexURLPattern buyGame ^game/([0-9a-zA-Z ]+)/buyGame/$>], [<RegexURLPattern addComment ^game/([0-9a-zA-Z ]+)/addComment/$>], [<RegexURLPattern browseGames ^browseGames/$>], [<RegexURLPattern about ^about/$>], [<RegexURLPattern myProfile ^myProfile/$>], [<RegexURLPattern buyGameResult ^game/([0-9a-zA-Z ]+)/payment/$>], [<RegexURLPattern upload ^test/$>], [<RegexURLPattern editProfile ^myProfile/editProfile/$>], [<RegexURLPattern manageUploadedGames ^myProfile/manageUploadedGames/$>], [<RegexURLPattern manageGame ^myProfile/manageUploadedGames/([a-zA-Z0-9 ]+)/$>], [<RegexURLPattern registerForAPI ^registerForAPI/$>], [<RegexURLPattern searchGamesAPI ^searchGamesAPI/v1/$>], [<RegexURLPattern searchHighScoresAPI ^searchHighScoresAPI/v1/$>], [<RegexURLPattern searchGameSalesAPI ^searchGameSalesAPI/v1/$>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sharbel.dahlan\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'social.apps.django_app.urls' from 'C:\\\\Users\\\\sharbel.dahlan\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python35-32\\\\lib\\\\site-packages\\\\social\\\\apps\\\\django_app\\\\urls.py'> (None:social) ^oauth/>"
+[28/Feb/2017 17:06:22] WARNING [django.request:152] Not Found: /favicon.ico
+[28/Feb/2017 17:06:22] WARNING [django.server:131] "GET /favicon.ico HTTP/1.1" 404 5531
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 15:06:23.259893' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 15:06:23.259893', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."game_id" = 1 AND "awsomeProject_transaction"."status" = 'completed') LIMIT 1; args=(2, 1, 'completed')
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[28/Feb/2017 17:06:23] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 9811
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 17:06:23] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.003) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 15:59:11.959597' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 15:59:11.959597', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.001) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."game_id" = 1 AND "awsomeProject_transaction"."status" = 'completed') LIMIT 1; args=(2, 1, 'completed')
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.001) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[28/Feb/2017 17:59:11] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[28/Feb/2017 17:59:12] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 9782
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 17:59:12] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:23] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 16:02:23.681658' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 16:02:23.681658', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 18:02:23] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 18:02:23] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-28' AND '2017-02-28'; args=('2017-01-28', '2017-02-28')
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET / HTTP/1.1" 200 6015
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 18:02:23] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:24] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 16:02:26.499431' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 16:02:26.499431', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."game_id" = 1 AND "awsomeProject_transaction"."status" = 'completed') LIMIT 1; args=(2, 1, 'completed')
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.001) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[28/Feb/2017 18:02:26] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 9782
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:26] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 18:02:27] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 16:26:42.390130' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 16:26:42.390130', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."game_id" = 1 AND "awsomeProject_transaction"."status" = 'completed') LIMIT 1; args=(2, 1, 'completed')
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.001) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."user_id" = 2 AND "awsomeProject_developergame"."game_id" = 1) LIMIT 1; args=(2, 1)
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[28/Feb/2017 18:26:42] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 10155
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 18:26:42] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 18:27:18] DEBUG [django.db.backends:90] (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[28/Feb/2017 18:27:18] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[28/Feb/2017 18:31:56] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 16:31:56.787587' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 16:31:56.787587', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 18:31:56] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 18:31:56] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-01-28' AND '2017-02-28'; args=('2017-01-28', '2017-02-28')
+[28/Feb/2017 18:31:56] INFO [django.server:131] "GET / HTTP/1.1" 200 6015
+[28/Feb/2017 18:31:56] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:57] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.003) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2017-02-28 16:31:59.038326' AND "django_session"."session_key" = 'f44er372zvvu7jv1k7m771xxjohdzhts'); args=('2017-02-28 16:31:59.038326', 'f44er372zvvu7jv1k7m771xxjohdzhts')
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'mannagia'; args=('mannagia',)
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."game_id" = 1 AND "awsomeProject_transaction"."user_id" = 2 AND "awsomeProject_transaction"."status" = 'completed') LIMIT 1; args=(1, 2, 'completed')
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.001) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."game_id" = 1 AND "awsomeProject_developergame"."user_id" = 2) LIMIT 1; args=(1, 2)
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.001) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 1 ORDER BY "awsomeProject_comment"."created" DESC; args=(1,)
+[28/Feb/2017 18:31:59] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 1 ORDER BY "awsomeProject_scores"."score" DESC; args=(1,)
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /game/mannagia/ HTTP/1.1" 200 10207
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[28/Feb/2017 18:31:59] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
