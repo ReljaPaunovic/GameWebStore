@@ -9,7 +9,7 @@
 	<meta property="og:url"                content="{{ gameURL }}" />
 	<meta property="og:title"              content="If you're not playing {{ game.name }}, you sure are missing out!" />
 	<meta property="og:description"        content="People are going nuts over this Awsome JS Games Store.. it's the real deal!" />
-	<meta property="og:image"              content="{{game.image}}" />
+	<meta property="og:image"              content="{{game.image.url}}" />
   <meta property="og:type"               content="product" />
   <meta property="fb:app_id"             content="328098844258094" />
 
@@ -145,9 +145,6 @@
 				</div>
 			{% endif %}
 
-      <a href="https://www.facebook.com/sharer/sharer.php" target="_blank">
-        Share on Facebook
-      </a>
 			<div class="fb-share-button"
 						data-href="{{ gameURL }}"
 						data-layout="button"
