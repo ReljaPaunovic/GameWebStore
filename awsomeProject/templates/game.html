@@ -5,11 +5,9 @@
 
 {% block metaTags %}
   <!-- Open Graph Tags for customized facebook sharing-->
-	{{ super }}
-	{% include "tags.html" %}
+	{{ block.super }}
+	{% include "{% static 'tags.html' %}" %}
 {% endblock metaTags %}
-
-{% load bootstrap %}
 
 {% block main %}
 
