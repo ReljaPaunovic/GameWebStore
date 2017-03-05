@@ -33,13 +33,8 @@ from email.mime.multipart import MIMEMultipart
 secret_key = "26d3858162e10dc081f786319f286025" #This is from the secret key generator they provided. Dunno if this is the right way to put it
 
 import cloudinary, cloudinary.uploader, cloudinary.api
-#from cloudinary.uploader import upload
-#from cloudinary.utils import cloudinary_url
-#from cloudinary.api import delete_resources_by_tag, resources_by_tag
 from django import forms
 from cloudinary.forms import cl_init_js_callbacks
-#from .models import GameImage, ProfileImage
-#from .files import GameImageForm, ProfileImageForm
 from .files import UploadPhoto
 from cloudinary.models import CloudinaryField
 import string
