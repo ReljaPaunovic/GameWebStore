@@ -3,13 +3,9 @@
 {% load cloudinary %}
 {% load bootstrap %}
 
-{% block metaTags %}
+{% block meta %}
   <!-- Open Graph Tags for customized facebook sharing-->
 	{{ block.super }}
-	{% load cloudinary %}
-	{% cloudinary_includes %}
-	{% load static %}
-	{% cloudinary_js_config %}
 
 	<meta property="og:site_name"          content="Awsome JS Games Store" />
 	<meta property="og:url"                content="{{ gameURL }}" />
@@ -19,7 +15,7 @@
 	<meta property="og:type"               content="product" />
 	<meta property="fb:app_id"             content="328098844258094" />
 
-{% endblock metaTags %}
+{% endblock meta %}
 
 {% block main %}
 
