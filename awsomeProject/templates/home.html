@@ -15,13 +15,13 @@
 				{% if user.is_authenticated %}
 				<div class="col-md-12 text-center">
 					<div class="section-font">Welcome {{ user.username }}!</div>
-					<div class="section-font">It's Nice To Meet You</div>
+					<!-- <div class="section-font">It's Nice To Meet You</div> -->
 				</div>
 				{% else %}
 				<div class="col-md-12 text-center">
 					<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:15px">
 						<div class="section-font">Welcome!</div>
-						<div class="section-font">It's Nice To Meet You</div>
+						<!-- <div class="section-font">It's Nice To Meet You</div> -->
 					</div>
 					<div class="col-md-12 text-center" style="margin-bottom:15px">
 						<a href="{% url "register" %}" class="btn btn-primary btn-lg" role="button">Register</a>
