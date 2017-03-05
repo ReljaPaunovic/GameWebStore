@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% load cloudinary %}
 {%load bootstrap %}
 
-{% block meta %}
+{% block metaTags %}
   <!-- Open Graph Tags for customized facebook sharing-->
 	{{ block.super }}
-	{% load static %}
 	{% include "tags.html" %}
-{% endblock meta %}
+{% endblock metaTags %}
 
 {%load bootstrap %}
 
