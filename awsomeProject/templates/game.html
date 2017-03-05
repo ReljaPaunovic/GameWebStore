@@ -5,9 +5,8 @@
 {% block meta %}
   <!-- Open Graph Tags for customized facebook sharing-->
 	{{ block.super }}
-	{% block gameName %}
-		SOME NAME
-	{% endblock gameName %}
+	{% load static %}
+	{% include "tags.html" %}
 {% endblock meta %}
 
 {%load bootstrap %}
