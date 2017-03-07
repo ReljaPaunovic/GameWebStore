@@ -11737,3 +11737,63 @@ ValueError: The file 'js/jquery-3.1.1.min.js' could not be found with <whitenois
 [05/Mar/2017 13:28:42] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
 [05/Mar/2017 13:28:42] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
 [05/Mar/2017 13:28:43] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[05/Mar/2017 19:19:46] DEBUG [django.db.backends:90] (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[05/Mar/2017 19:19:46] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[05/Mar/2017 19:19:51] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '1e58fi51uzql1fl7jizekr79d3joaajx' AND "django_session"."expire_date" > '2017-03-05 17:19:51.870153'); args=('1e58fi51uzql1fl7jizekr79d3joaajx', u'2017-03-05 17:19:51.870153')
+[05/Mar/2017 19:19:51] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10; args=(10,)
+[05/Mar/2017 19:19:51] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."created" BETWEEN '2017-02-02' AND '2017-03-05'; args=(u'2017-02-02', u'2017-03-05')
+[05/Mar/2017 19:19:51] INFO [django.server:131] "GET / HTTP/1.1" 200 6960
+[05/Mar/2017 19:19:51] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 86709
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 200 545
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 200 2275
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 200 131649
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121201
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 37045
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 200 469
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 200 16089
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 200 10724
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 200 63667
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:52] INFO [django.server:131] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '1e58fi51uzql1fl7jizekr79d3joaajx' AND "django_session"."expire_date" > '2017-03-05 17:19:54.011627'); args=('1e58fi51uzql1fl7jizekr79d3joaajx', u'2017-03-05 17:19:54.011627')
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10; args=(10,)
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'gmae'; args=(u'gmae',)
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."status" = 'completed' AND "awsomeProject_transaction"."game_id" = 2 AND "awsomeProject_transaction"."user_id" = 10) LIMIT 1; args=('completed', 2, 10)
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."game_id" = 2 AND "awsomeProject_developergame"."user_id" = 10) LIMIT 1; args=(2, 10)
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 2 ORDER BY "awsomeProject_comment"."created" DESC; args=(2,)
+[05/Mar/2017 19:19:54] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 2 ORDER BY "awsomeProject_scores"."score" DESC; args=(2,)
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /game/gmae/ HTTP/1.1" 200 11298
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[05/Mar/2017 19:19:54] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '1e58fi51uzql1fl7jizekr79d3joaajx' AND "django_session"."expire_date" > '2017-03-05 17:22:45.959198'); args=('1e58fi51uzql1fl7jizekr79d3joaajx', u'2017-03-05 17:22:45.959198')
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10; args=(10,)
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_game"."id", "awsomeProject_game"."name", "awsomeProject_game"."url", "awsomeProject_game"."price", "awsomeProject_game"."description", "awsomeProject_game"."created", "awsomeProject_game"."category", "awsomeProject_game"."image" FROM "awsomeProject_game" WHERE "awsomeProject_game"."name" = 'gmae'; args=(u'gmae',)
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_transaction" WHERE ("awsomeProject_transaction"."status" = 'completed' AND "awsomeProject_transaction"."game_id" = 2 AND "awsomeProject_transaction"."user_id" = 10) LIMIT 1; args=('completed', 2, 10)
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT (1) AS "a" FROM "awsomeProject_developergame" WHERE ("awsomeProject_developergame"."game_id" = 2 AND "awsomeProject_developergame"."user_id" = 10) LIMIT 1; args=(2, 10)
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_comment"."id", "awsomeProject_comment"."user_id", "awsomeProject_comment"."game_id", "awsomeProject_comment"."commentText", "awsomeProject_comment"."created" FROM "awsomeProject_comment" WHERE "awsomeProject_comment"."game_id" = 2 ORDER BY "awsomeProject_comment"."created" DESC; args=(2,)
+[05/Mar/2017 19:22:45] DEBUG [django.db.backends:90] (0.000) SELECT "awsomeProject_scores"."id", "awsomeProject_scores"."user_id", "awsomeProject_scores"."game_id", "awsomeProject_scores"."score" FROM "awsomeProject_scores" WHERE "awsomeProject_scores"."game_id" = 2 ORDER BY "awsomeProject_scores"."score" DESC; args=(2,)
+[05/Mar/2017 19:22:45] INFO [django.server:131] "GET /game/gmae/ HTTP/1.1" 200 10876
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.ui.widget.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.fileupload.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.iframe-transport.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/css/style.css HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
+[05/Mar/2017 19:22:55] INFO [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 542194

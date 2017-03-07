@@ -3,13 +3,16 @@
 {% load cloudinary %}
 {% load bootstrap %}
 
-{% block metaTags %}
+{% block meta %}
   <!-- Open Graph Tags for customized facebook sharing-->
-	{{ super }}
-	{% include "tags.html" %}
-{% endblock metaTags %}
+	{{ block.super }}
 
-{% load bootstrap %}
+	<meta property="og:site_name"          content="Awsome JS Games Store" />
+	<meta property="og:title"              content="If you're not playing , you sure are missing out!" />
+	<meta property="og:description"        content="My description" />
+
+
+{% endblock meta %}
 
 {% block main %}
 
