@@ -11797,3 +11797,8 @@ ValueError: The file 'js/jquery-3.1.1.min.js' could not be found with <whitenois
 [05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/profile.js HTTP/1.1" 304 0
 [05/Mar/2017 19:22:46] INFO [django.server:131] "GET /static/js/jquery.cloudinary.js HTTP/1.1" 304 0
 [05/Mar/2017 19:22:55] INFO [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 542194
+[07/Mar/2017 16:16:30] DEBUG [django.db.backends:90] (0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+[07/Mar/2017 16:16:30] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
