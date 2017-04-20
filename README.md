@@ -1,4 +1,6 @@
 
+FOR A FULL PROJECT REPORT CHECK PDF DOCUMENT LABELED WSD_Awsome_JS_Games_Store_Report.pdf
+
 ### 1. Team
 
 605078 Relja Paunovic
